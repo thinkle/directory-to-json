@@ -1,0 +1,16 @@
+{
+  "name": "directory-to-json",
+  "version": "1.0.0",
+  "description": "Simple package to take a directory structure and dump it into a JSON file.",
+  "main": "directoryToJson.js",
+  "dependencies": {
+    "glob": "^7.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js",
+    "build":"node build.js"
+  },
+  "author": "Tom Hinkle",
+  "license": "ISC"
+}
