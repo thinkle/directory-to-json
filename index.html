@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js">
+  </script>
+  <style>
+    .image {
+    display: inline-block;
+    border-radius: 10px;
+    border: 3px solid black;
+    padding: 2em;
+    }
+    .gallery {
+    width : 800px;
+    border : 3px solid grey;
+    padding : 2em;
+    margin-bottom: 2em;
+    }
+    .badge {
+    background-color : #2f2f2f;
+    color: #efefef;
+    font-size: x-small;
+    border-radius: 8px;
+    padding: 3px;
+    }
+  </style>
+<body>  
+  <H1>Hello World Gallery App</H1>
+  <div id="app">
+    <div>
+      Choose Image Size:
+      <select v-model="size">
+        <option v-for="sz in sizes" :value="sz">{{sz}}</option>
+      </select>
+    </div>
+    <div class="gallery" v-for="gallery in galleries">
+      <h3>{{gallery.title}} <span class="badge">({{gallery.images.length}} images</span></h3>
+      <h4>by {{gallery.author}}</h4>
+      <div class="image" v-for="image, n in gallery.images">
+        <h5>Image {{n+1}}</h5>
+        <img :src="image[size]">
+      </div>
+  </div>
+</body>
+<script src="galleries.js"></script>
+<script src="demo.js"></script>
