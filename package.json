@@ -10,7 +10,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "node test.js",
-    "build": "node build.js"
+    "build": "node build.js",
+    "serve": "echo Listening on localhost:8000 && python -m SimpleHTTPServer"
   },
   "author": "Tom Hinkle",
   "license": "ISC"
