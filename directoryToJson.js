@@ -7,8 +7,8 @@ function buildDirectory ({
     extensions=['jpg','jpeg','png','gif'],//File extensions to collect
     fileListProp='images', // Property to stick the array of filenames on
     root='images/',//Folder to start looking in
-    jsonPrefix=''//Extra code to add before the JSON dump (e.g. to set a variable)
-    
+    jsonPrefix='',//Extra code to add before the JSON dump (e.g. to set a variable)
+    outputTransform=(f)=>f, // function to transform image filenames in our output JSON
 }
                           ) {
     
@@ -42,6 +42,7 @@ function buildDirectory ({
                     json[fileListProp].push(...glob.sync(`${d}/*.${ext}`))
                 }
             );
+            json[fileListProp] = json[fileListProp].map(outputTransform);
             jsonData.push(json);
             console.log(`...found ${json[fileListProp].length} images`);
         }
