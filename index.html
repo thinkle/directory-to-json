@@ -10,7 +10,7 @@
     padding: 2em;
     }
     .gallery {
-    width : 800px;
+    min-width : 800px;
     border : 3px solid grey;
     padding : 2em;
     margin-bottom: 2em;
@@ -33,7 +33,7 @@
       </select>
     </div>
     <div class="gallery" v-for="gallery in galleries">
-      <h3>{{gallery.title}} <span class="badge">({{gallery.images.length}} images</span></h3>
+      <h3>{{gallery.title}} <span class="badge">{{gallery.images.length}} images</span></h3>
       <h4>by {{gallery.author}}</h4>
       <div class="image" v-for="image, n in gallery.images">
         <h5>Image {{n+1}}</h5>
