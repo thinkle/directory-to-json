@@ -42,5 +42,12 @@ var resizer = {
         dirs.forEach((d)=>this.crawl({dir:d,files,extensions})); // recurse...
     },
     sizes : [1920,800,400,150],
+    mapSizes : function (fn) {
+        var output = {original:fn,}
+        this.sizes.forEach(
+            (s)=>output[s]=addSuffix(fn,s)
+        );
+        return output;
+    }
 }
 exports.resizer = resizer;
