@@ -9,8 +9,9 @@ function buildDirectory ({
     root='images/',//Folder to start looking in
     jsonPrefix='',//Extra code to add before the JSON dump (e.g. to set a variable)
     outputTransform=(f)=>f, // function to transform image filenames in our output JSON
+    filter=(o)=>true,
 }
-                          ) {
+                        ) {
     
     console.log('Look for folders in %s',root);
     var jsonData = [];    
@@ -42,6 +43,7 @@ function buildDirectory ({
                     json[fileListProp].push(...glob.sync(`${d}/*.${ext}`))
                 }
             );
+            json[fileListProp] = json[fileListProp].filter(filter);
             json[fileListProp] = json[fileListProp].map(outputTransform);
             jsonData.push(json);
             console.log(`...found ${json[fileListProp].length} images`);
